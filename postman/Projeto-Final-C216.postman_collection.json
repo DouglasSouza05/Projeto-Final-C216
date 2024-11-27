@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "07c9464e-ae15-4cca-8703-dabec4be41b7",
+		"_postman_id": "988e7bbd-4144-4add-aebe-35d88d976b3c",
 		"name": "Projeto-Final-C216",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33427545"
+		"_exporter_id": "33845705"
 	},
 	"item": [
 		{
@@ -172,7 +172,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/api/v1/resetDatabase/",
+					"raw": "http://localhost:8000/api/v1/resetStock/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -185,6 +185,75 @@
 						""
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH - Atualizar Atributos de uma Carta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should confirm update\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql('Componente atualizado com sucesso!');\r",
+							"});\r",
+							"\r",
+							"// Validar se o componente foi atualizado corretamente\r",
+							"pm.sendRequest(\"http://127.0.0.1:8000/api/v1/componentes/3\", function (err, res) {\r",
+							"    pm.test(\"Os atributos do componente foram atualizados\", function () {\r",
+							"        let componente = res.json();\r",
+							"        pm.expect(componente.nome).to.eql(\"Placa de Vídeo - Nova Geração\");\r",
+							"        pm.expect(componente.marca).to.eql(\"Nvidia\");\r",
+							"        pm.expect(componente.quantidade).to.eql(20);\r",
+							"        pm.expect(componente.preco).to.eql(3500.00); // Verifica se o preço foi alterado\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Placa de Vídeo - Nova Geração\",\r\n  \"marca\": \"Nvidia\",\r\n  \"quantidade\": 20,\r\n  \"preco\": 3500.00\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/componentes/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"componentes",
+						"3"
+					]
+				},
+				"description": "Atualiza os atributos de um componente, exceto o ID."
 			},
 			"response": []
 		}
