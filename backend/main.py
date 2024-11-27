@@ -31,7 +31,7 @@ class SoldCard(BaseModel):
 
 
 class UpdatedCard(BaseModel):
-    rarity: Optional[float] = None
+    rarity: Optional[str] = None
     quantity: Optional[int] = None
     price: Optional[float] = None
 
@@ -134,6 +134,39 @@ async def checkCards(id: int):
     except Exception as e:
         raise HTTPException(
             status_code=500, detail=f"Falha na busca das Cartas: {str(e)}"
+        )
+    finally:
+        await conn.close()
+
+@app.patch("/api/v1/updateCard/{id}", status_code=200)
+async def updateCard(id: int, card_update: UpdatedCard):
+    conn = await database()
+    try:
+        # Verificar se a carta existe
+        query = "SELECT * FROM cardgames WHERE id = $1"
+        card = await conn.fetchrow(query, id)
+        if not card:
+            raise HTTPException(status_code=404, detail=f"Carta com ID {id} não encontrada!")
+
+        # Atualizar os campos fornecidos
+        update_query = """
+            UPDATE cardgames
+            SET rarity = COALESCE($1, rarity),
+                quantity = COALESCE($2, quantity),
+                price = COALESCE($3, price)
+            WHERE id = $4
+        """
+        await conn.execute(
+            update_query,
+            card_update.rarity,
+            card_update.quantity,
+            card_update.price,
+            id
+        )
+        return {"message": f"Carta com ID {id} atualizada com sucesso!"}
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, detail=f"Falha ao atualizar a carta: {str(e)}"
         )
     finally:
         await conn.close()
