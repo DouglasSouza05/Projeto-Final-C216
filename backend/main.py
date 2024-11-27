@@ -207,6 +207,32 @@ async def sellCard(id: int, sale: SoldCard):
     finally:
         await conn.close()
 
+# 6 . Listar vendas
+@app.get("/api/v1/listSales/", status_code=200)
+async def listSales():
+    conn = await database()
+    try:
+        # Buscar todas as vendas no banco de dados com informações das cartas
+        query = """
+            SELECT sales.id AS sale_id, cardgames.name AS card_name, 
+                   sales.quantity_sold, sales.sale_value, sales.sale_date
+            FROM sales
+            JOIN cardgames ON sales.cardgames_id = cardgames.id
+            ORDER BY sales.sale_date DESC
+        """
+        rows = await conn.fetch(query)
+        sales = [dict(row) for row in rows]
+
+        if not sales:
+            return {"message": "Nenhuma venda registrada até o momento."}
+
+        return sales
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, detail=f"Falha ao listar as vendas: {str(e)}"
+        )
+    finally:
+        await conn.close()
 
 
 # 7. Remover Cartas

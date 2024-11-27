@@ -316,6 +316,51 @@
 				"description": "Deduz uma unidade da quantidade de um componente ao realizar uma venda."
 			},
 			"response": []
+		},
+		{
+			"name": "GET - Listar todas as Vendas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should confirm sales details\", function () {\r",
+							"    let venda = pm.response.json()[0];\r",
+							"    pm.expect(venda.valor_venda).to.eql(1000.0); // O valor deve ser o calculo correto da venda efetuada\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/vendas/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"vendas",
+						""
+					]
+				},
+				"description": "Testa o endpoint para listar todas as vendas."
+			},
+			"response": []
 		}
 	]
 }
