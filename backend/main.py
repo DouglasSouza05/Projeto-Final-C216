@@ -26,7 +26,6 @@ class Card(BaseModel):
 
 
 class SoldCard(BaseModel):
-    name: str
     quantity: int
 
 
@@ -138,17 +137,16 @@ async def checkCards(id: int):
     finally:
         await conn.close()
 
+# 4. Atualizar uma carta
 @app.patch("/api/v1/updateCard/{id}", status_code=200)
 async def updateCard(id: int, card_update: UpdatedCard):
     conn = await database()
     try:
-        # Verificar se a carta existe
         query = "SELECT * FROM cardgames WHERE id = $1"
         card = await conn.fetchrow(query, id)
         if not card:
             raise HTTPException(status_code=404, detail=f"Carta com ID {id} não encontrada!")
 
-        # Atualizar os campos fornecidos
         update_query = """
             UPDATE cardgames
             SET rarity = COALESCE($1, rarity),
@@ -170,6 +168,45 @@ async def updateCard(id: int, card_update: UpdatedCard):
         )
     finally:
         await conn.close()
+
+# 5. Vender uma carta e reduzir a quantidade no estoque
+@app.put("/api/v1/sellCard/{id}", status_code=200)
+async def sellCard(id: int, sale: SoldCard):
+    conn = await database()
+    try:
+        query = "SELECT * FROM cardgames WHERE id = $1"
+        card = await conn.fetchrow(query, id)
+        if not card:
+            raise HTTPException(status_code=404, detail=f"Carta com ID {id} não encontrada!")
+
+        if card["quantity"] < sale.quantity:
+            raise HTTPException(status_code=400, detail="Quantidade insuficiente no estoque!")
+
+        new_quantity = card["quantity"] - sale.quantity
+        update_query = "UPDATE cardgames SET quantity = $1 WHERE id = $2"
+        await conn.execute(update_query, new_quantity, id)
+
+        sale_query = """
+            INSERT INTO sales (cardgames_id, quantity_sold, sale_value)
+            VALUES ($1, $2, $3)
+        """
+        sale_value = sale.quantity * card["price"]
+        await conn.execute(sale_query, id, sale.quantity, sale_value)
+
+        return {
+            "message": f"Venda realizada com sucesso!",
+            "card": card["name"],
+            "quantity_sold": sale.quantity,
+            "remaining_stock": new_quantity,
+            "sale_value": sale_value,
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, detail=f"Falha ao registrar a venda: {str(e)}"
+        )
+    finally:
+        await conn.close()
+
 
 
 # 7. Remover Cartas
