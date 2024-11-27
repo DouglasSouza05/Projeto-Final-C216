@@ -162,3 +162,21 @@ async def deleteCard(id: int):
         )
     finally:
         await conn.close()
+
+# 8. Resetar Banco de Dados
+@app.delete("/api/v1/resetDatabase/", status_code=200)
+async def resetDatabase():
+    init_sql = "db/init.sql"
+    conn = await database()
+    try:
+        with open(init_sql, "r") as file:
+            sql_commands = file.read()
+        await conn.execute(sql_commands)
+        return {"message": "Banco de dados resetado com sucesso!"}
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, detail=f"Falha ao resetar o banco de dados: {str(e)}"
+        )
+    finally:
+        await conn.close()
+
