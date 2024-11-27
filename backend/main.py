@@ -212,7 +212,6 @@ async def sellCard(id: int, sale: SoldCard):
 async def listSales():
     conn = await database()
     try:
-        # Buscar todas as vendas no banco de dados com informações das cartas
         query = """
             SELECT sales.id AS sale_id, cardgames.name AS card_name, 
                    sales.quantity_sold, sales.sale_value, sales.sale_date
