@@ -137,3 +137,28 @@ async def checkCards(id: int):
         )
     finally:
         await conn.close()
+
+
+# 7. Remover Cartas
+@app.delete("/api/v1/deleteCard/{id}", status_code=200)
+async def deleteCard(id: int):
+
+    conn = await database()
+
+    try:
+        query = "SELECT * FROM cardgames WHERE id = $1"
+        card = await conn.fetchrow(query, id)
+
+        if card is None:
+            return {"message": f"Carta com ID {id} não encontrada!"}
+
+        deleteQuery = "DELETE FROM cardgames WHERE id = $1"
+        await conn.execute(deleteQuery, id)
+
+        return {"message": f"Carta removida com sucesso!", "value": card}
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, detail=f"Falha na remoção das Cartas: {str(e)}"
+        )
+    finally:
+        await conn.close()
