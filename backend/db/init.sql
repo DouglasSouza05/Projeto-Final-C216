@@ -14,7 +14,7 @@ CREATE TABLE "cardgames" (
 
 CREATE TABLE "sales" (
     "id" SERIAL PRIMARY KEY,
-    "cardgames_id" INTEGER REFERENCES cardgames(id) ON DELETE CASCADE,
+    "card_id" INTEGER REFERENCES cardgames(id) ON DELETE CASCADE,
     "quantity_sold" INTEGER NOT NULL,
     "sale_value" FLOAT NOT NULL,
     "sale_date" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
