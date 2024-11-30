@@ -114,12 +114,22 @@ def list_sales():
     response = requests.get(f"{API_BASE_URL}/api/v1/listSales/")
     try:
         sales = response.json()
-    except:
+        if not isinstance(sales, list):
+            raise ValueError("Formato inesperado de resposta da API")
+    except Exception as e:
         sales = []
+        print(f"Erro ao processar a resposta da API: {e}")
+    
     total_sales = 0
     for sale in sales:
-        total_sales += float(sale["sale_value"])
+        try:
+            total_sales += float(sale["sale_value"])
+        except KeyError:
+            print(f"Dados de venda incompletos: {sale}")
+            continue
+    
     return render_template("list_sales.html", sales=sales, total_sales=total_sales)
+
 
 
 @app.route("/delete-card/<int:card_id>", methods=["POST"])
