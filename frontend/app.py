@@ -85,28 +85,28 @@ def update_card(card_id):
         return "Erro ao atualizar carta", 500
 
 
-# @app.route("/sell-card/<int:card_id>", methods=["GET"])
-# def sell_card_form(card_id):
-#     response = requests.get(f"{API_BASE_URL}/api/v1/listCards/")
-#     cards = [card for card in response.json() if card["id"] == card_id]
-#     if len(cards) == 0:
-#         return "Carta não encontrada", 404
-#     card = cards[0]
-#     return render_template("sell_card.html", card=card)
+@app.route("/sell-card/<int:card_id>", methods=["GET"])
+def sell_card_form(card_id):
+    response = requests.get(f"{API_BASE_URL}/api/v1/listCards/")
+    cards = [card for card in response.json() if card["id"] == card_id]
+    if len(cards) == 0:
+        return "Carta não encontrada", 404
+    card = cards[0]
+    return render_template("sell_card.html", card=card)
 
 
-# @app.route("/sell-card/<int:card_id>", methods=["POST"])
-# def sell_card(card_id):
-#     quantity = int(request.form["quantity"])
+@app.route("/sell-card/<int:card_id>", methods=["POST"])
+def sell_card(card_id):
+    quantity = int(request.form["quantity"])
 
-#     payload = {"quantity": quantity}
+    payload = {"quantity": quantity}
 
-#     response = requests.put(f"{API_BASE_URL}/api/v1/sellCard/{card_id}", json=payload)
+    response = requests.put(f"{API_BASE_URL}/api/v1/sellCard/{card_id}", json=payload)
 
-#     if response.status_code == 200:
-#         return redirect(url_for("list_cards"))
-#     else:
-#         return "Erro ao vender carta", 500
+    if response.status_code == 200:
+        return redirect(url_for("list_cards"))
+    else:
+        return "Erro ao vender carta", 500
 
 
 @app.route("/list-sales", methods=["GET"])
@@ -116,9 +116,7 @@ def list_sales():
         sales = response.json()
     except:
         sales = []
-    total_sales = 0
-    for sale in sales:
-        total_sales += float(sale["sale_value"])
+    total_sales = sum(float(sale["sale_value"]) for sale in sales)
     return render_template("list_sales.html", sales=sales, total_sales=total_sales)
 
 
