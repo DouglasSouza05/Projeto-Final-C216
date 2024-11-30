@@ -1,45 +1,110 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Cor clara padrão para fundo */
+    color: #343a40; /* Cinza escuro para textos */
     margin: 0;
     padding: 0;
 }
 
-header {
-    background-color: #004d80; /* Azul escuro */
-    color: white;
-    padding: 1em 0;
-    text-align: center;
-}
-
-nav a {
-    margin: 0 15px;
-    color: #ffcc00; /* Dourado */
+a {
     text-decoration: none;
+    color: inherit;
 }
 
-nav a:hover {
-    text-decoration: underline;
+h1, h2, h3 {
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-section {
-    margin: 20px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    border: 2px solid #004d80; /* Azul escuro */
+/* Header */
+header {
+    background-color: #0d6efd; /* Azul bootstrap */
+    color: white;
+    padding: 1.5em 0;
+    text-align: center;
+    border-bottom: 2px solid #004085; /* Tom mais escuro para contraste */
+}
+
+/* Navbar */
+.navbar {
+    margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
-    margin-bottom: 10px;
+.nav-link {
+    font-weight: bold;
+    color: #0d6efd; /* Azul bootstrap */
 }
 
+.nav-link:hover {
+    color: #0056b3; /* Azul mais escuro */
+    text-decoration: underline;
+}
+
+/* Forms */
+form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+form input, form select {
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.btn {
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Tables */
+.table {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: #0d6efd;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.table td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Section */
+section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 900px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
 footer {
     text-align: center;
-    background-color: #333;
+    background-color: #343a40; /* Cinza escuro */
     color: white;
     padding: 1em 0;
-    margin-top: 20px;
+    margin-top: 40px;
 }
