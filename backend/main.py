@@ -137,6 +137,7 @@ async def checkCards(id: int):
     finally:
         await conn.close()
 
+
 # 4. Atualizar uma carta
 @app.patch("/api/v1/updateCard/{id}", status_code=200)
 async def updateCard(id: int, card_update: UpdatedCard):
@@ -145,7 +146,9 @@ async def updateCard(id: int, card_update: UpdatedCard):
         query = "SELECT * FROM cardgames WHERE id = $1"
         card = await conn.fetchrow(query, id)
         if not card:
-            raise HTTPException(status_code=404, detail=f"Carta com ID {id} não encontrada!")
+            raise HTTPException(
+                status_code=404, detail=f"Carta com ID {id} não encontrada!"
+            )
 
         update_query = """
             UPDATE cardgames
@@ -159,7 +162,7 @@ async def updateCard(id: int, card_update: UpdatedCard):
             card_update.rarity,
             card_update.quantity,
             card_update.price,
-            id
+            id,
         )
         return {"message": f"Carta com ID {id} atualizada com sucesso!"}
     except Exception as e:
@@ -169,6 +172,7 @@ async def updateCard(id: int, card_update: UpdatedCard):
     finally:
         await conn.close()
 
+
 # 5. Vender uma carta e reduzir a quantidade no estoque
 @app.put("/api/v1/sellCard/{id}", status_code=200)
 async def sellCard(id: int, sale: SoldCard):
@@ -177,10 +181,14 @@ async def sellCard(id: int, sale: SoldCard):
         query = "SELECT * FROM cardgames WHERE id = $1"
         card = await conn.fetchrow(query, id)
         if not card:
-            raise HTTPException(status_code=404, detail=f"Carta com ID {id} não encontrada!")
+            raise HTTPException(
+                status_code=404, detail=f"Carta com ID {id} não encontrada!"
+            )
 
         if card["quantity"] < sale.quantity:
-            raise HTTPException(status_code=400, detail="Quantidade insuficiente no estoque!")
+            raise HTTPException(
+                status_code=400, detail="Quantidade insuficiente no estoque!"
+            )
 
         new_quantity = card["quantity"] - sale.quantity
         update_query = "UPDATE cardgames SET quantity = $1 WHERE id = $2"
@@ -207,6 +215,7 @@ async def sellCard(id: int, sale: SoldCard):
     finally:
         await conn.close()
 
+
 # 6 . Listar vendas
 @app.get("/api/v1/listSales/", status_code=200)
 async def listSales():
@@ -221,9 +230,6 @@ async def listSales():
         """
         rows = await conn.fetch(query)
         sales = [dict(row) for row in rows]
-
-        if not sales:
-            return {"message": "Nenhuma venda registrada até o momento."}
 
         return sales
     except Exception as e:
@@ -258,6 +264,7 @@ async def deleteCard(id: int):
     finally:
         await conn.close()
 
+
 # 8. Resetar Banco de Dados
 @app.delete("/api/v1/resetDatabase/", status_code=200)
 async def resetDatabase():
@@ -274,4 +281,3 @@ async def resetDatabase():
         )
     finally:
         await conn.close()
-
