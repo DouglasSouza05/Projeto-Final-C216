@@ -85,7 +85,7 @@ def update_card(card_id):
         return "Erro ao atualizar carta", 500
 
 
-@app.route("/sell-card/<int:card_id>", methods=["GET"])
+@app.route("/sell-card-form/<int:card_id>", methods=["GET"])
 def sell_card_form(card_id):
     response = requests.get(f"{API_BASE_URL}/api/v1/listCards/")
     cards = [card for card in response.json() if card["id"] == card_id]
@@ -119,7 +119,7 @@ def list_sales():
     except Exception as e:
         sales = []
         print(f"Erro ao processar a resposta da API: {e}")
-    
+
     total_sales = 0
     for sale in sales:
         try:
@@ -127,9 +127,8 @@ def list_sales():
         except KeyError:
             print(f"Dados de venda incompletos: {sale}")
             continue
-    
-    return render_template("list_sales.html", sales=sales, total_sales=total_sales)
 
+    return render_template("list_sales.html", sales=sales, total_sales=total_sales)
 
 
 @app.route("/delete-card/<int:card_id>", methods=["POST"])
