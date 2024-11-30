@@ -195,7 +195,7 @@ async def sellCard(id: int, sale: SoldCard):
         await conn.execute(update_query, new_quantity, id)
 
         sale_query = """
-            INSERT INTO sales (cardgames_id, quantity_sold, sale_value)
+            INSERT INTO sales (card_id, quantity_sold, sale_value)
             VALUES ($1, $2, $3)
         """
         sale_value = sale.quantity * card["price"]
@@ -225,7 +225,7 @@ async def listSales():
             SELECT sales.id AS sale_id, cardgames.name AS card_name, 
                    sales.quantity_sold, sales.sale_value, sales.sale_date
             FROM sales
-            JOIN cardgames ON sales.cardgames_id = cardgames.id
+            JOIN cardgames ON sales.card_id = cardgames.id
             ORDER BY sales.sale_date DESC
         """
         rows = await conn.fetch(query)
