@@ -132,14 +132,14 @@ def list_sales():
 #         return "Erro ao excluir carta", 500
 
 
-# @app.route("/reset-database", methods=["GET"])
-# def reset_database():
-#     response = requests.delete(f"{API_BASE_URL}/api/v1/resetDatabase/")
+@app.route("/reset-database", methods=["GET"])
+def reset_database():
+    response = requests.delete(f"{API_BASE_URL}/api/v1/resetDatabase/")
 
-#     if response.status_code == 200:
-#         return render_template("confirmation.html")
-#     else:
-#         return "Erro ao resetar o banco de dados", 500
+    if response.status_code == 200:
+        return render_template("reset.html")
+    else:
+        return "Erro ao resetar o banco de dados", 500
 
 
 if __name__ == "__main__":
