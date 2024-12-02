@@ -1,20 +1,3 @@
-.btn-gradient {
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-    border: none;
-    color: white;
-    font-weight: bold;
-    padding: 15px 30px;
-    border-radius: 50px;
-    transition: transform 0.2s ease, background 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-gradient:hover {
-    transform: scale(1.1);
-    background: linear-gradient(45deg, #fbc2eb, #ff9a9e);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
 .header {
     padding: 30px 0;
     background: linear-gradient(to bottom, #0d6efd, #6c757d);
@@ -22,15 +5,9 @@
     text-align: center;
     border-bottom: 5px solid #343a40;
 }
-.description {
-    font-size: 1.2rem;
-    margin: 20px auto;
-    max-width: 600px;
-    animation: slide-in 1.5s ease;
-}
 
 .title-gradient {
-    background: linear-gradient(90deg, #ffcc00, #fad000, #ffea70);
+    background: linear-gradient(90deg, #ffd700, #ffcc00, #ffe066);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 2.5rem;
@@ -38,46 +15,79 @@
     text-align: center;
 }
 
-form {
+.table {
+    margin: 20px auto;
     background-color: #ffffff;
-    border-radius: 15px;
-    padding: 30px;
-    max-width: 600px;
-    margin: 30px auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.form-label {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.form-control {
-    margin-bottom: 20px;
     border-radius: 10px;
-    border: 1px solid #dee2e6;
-    padding: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fade-in 1s ease;
 }
 
-.form-control:focus {
-    border-color: #0d6efd;
-    box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+.table th {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    font-size: 1rem;
+}
+
+.table td {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.95rem;
+    padding: 10px;
+    position: relative;
+}
+
+.table td {
+    background-color: #f8f9fa; 
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.table td:hover {
+    background-color: #e9ecef; 
+    transform: scale(1.03);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.table td.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #ff4b5c, #ff6b6b);
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: transform 0.2s ease, background 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-danger:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #ff6b6b, #ff4b5c);
 }
 
 .btn-primary {
     background: linear-gradient(45deg, #0d6efd, #6c757d);
     border: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    border-radius: 25px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.9rem;
     transition: transform 0.2s ease, background 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
     transform: scale(1.1);
     background: linear-gradient(45deg, #6c757d, #0d6efd);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 .sidebar {
@@ -100,19 +110,17 @@ form {
 
 .sidebar .nav-link:hover {
     background-color: #495057;
-    color: #ffcc00; 
+    color: #ffcc00;
 }
 
 .main-content {
-    margin-left: 250px; 
+    margin-left: 250px;
     padding: 20px;
     background-color: #f8f9fa;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
-
 
 .footer {
     margin-top: auto;
@@ -120,6 +128,7 @@ form {
     color: white;
     text-align: center;
     padding: 1em;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fade-in {
@@ -131,13 +140,7 @@ form {
     }
 }
 
-@keyframes slide-in {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.table {
+    animation: fade-in 1s ease;
 }
+

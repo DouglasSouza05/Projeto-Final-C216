@@ -1,13 +1,9 @@
-/* Página Inicial - index.html */
-
-/* Gradiente de texto */
 .text-gradient {
     background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fbc2eb);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Botão com gradiente e animação */
 .btn-gradient {
     background: linear-gradient(45deg, #ff9a9e, #fad0c4);
     border: none;
@@ -25,7 +21,6 @@
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Header animado */
 .header {
     padding: 50px 0;
     background: linear-gradient(to bottom, #0d6efd, #6c757d);
@@ -42,7 +37,6 @@
     animation: slide-in 1.5s ease;
 }
 
-/* Footer estilizado */
 .footer {
     background-color: #343a40;
     color: white;
@@ -52,7 +46,6 @@
     animation: fade-in 2s ease;
 }
 
-/* Estilização do Menu Lateral */
 .sidebar {
     width: 250px;
     height: 100vh;
@@ -73,12 +66,11 @@
 
 .sidebar .nav-link:hover {
     background-color: #495057;
-    color: #ffcc00; /* Dourado */
+    color: #ffcc00;
 }
 
-/* Estilização do Conteúdo Principal */
 .main-content {
-    margin-left: 250px; /* Espaço igual à largura da sidebar */
+    margin-left: 250px;
     padding: 20px;
     background-color: #f8f9fa;
     min-height: 100vh;
@@ -96,7 +88,6 @@
     margin-top: 30px;
 }
 
-/* Footer estilizado */
 .footer {
     margin-top: auto;
     background-color: #343a40;
@@ -105,8 +96,6 @@
     padding: 1em;
 }
 
-
-/* Animações */
 @keyframes fade-in {
     from {
         opacity: 0;
