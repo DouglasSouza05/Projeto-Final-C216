@@ -1,8 +1,8 @@
-/* Global Styles */
-body {
+/* Global Styles body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Cor clara padrão para fundo */
-    color: #343a40; /* Cinza escuro para textos */
+    background-color: #f8f9fa;
+
+    color: #343a40;
     margin: 0;
     padding: 0;
 }
@@ -12,21 +12,23 @@ a {
     color: inherit;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-weight: bold;
     margin-bottom: 15px;
 }
 
-/* Header */
 header {
-    background-color: #0d6efd; /* Azul bootstrap */
+    background-color: #0d6efd;
+
     color: white;
     padding: 1.5em 0;
     text-align: center;
-    border-bottom: 2px solid #004085; /* Tom mais escuro para contraste */
+    border-bottom: 2px solid #004085;
 }
 
-/* Navbar */
+
 .navbar {
     margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -34,25 +36,24 @@ header {
 
 .nav-link {
     font-weight: bold;
-    color: #0d6efd; /* Azul bootstrap */
+    color: #0d6efd;
 }
 
 .nav-link:hover {
-    color: #0056b3; /* Azul mais escuro */
+    color: #0056b3;
     text-decoration: underline;
 }
 
-/* Forms */
 form label {
     font-weight: bold;
     margin-top: 10px;
 }
 
-form input, form select {
+form input,
+form select {
     margin-bottom: 15px;
 }
 
-/* Buttons */
 .btn {
     font-weight: bold;
     padding: 10px 15px;
@@ -68,7 +69,6 @@ form input, form select {
     background-color: #0056b3;
 }
 
-/* Tables */
 .table {
     margin-top: 20px;
     background-color: #fff;
@@ -89,7 +89,6 @@ form input, form select {
     text-align: center;
 }
 
-/* Section */
 section {
     margin: 20px auto;
     padding: 20px;
@@ -100,11 +99,10 @@ section {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer */
 footer {
     text-align: center;
-    background-color: #343a40; /* Cinza escuro */
+    background-color: #343a40;
     color: white;
     padding: 1em 0;
     margin-top: 40px;
-}
+} */
