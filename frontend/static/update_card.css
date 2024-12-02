@@ -1,0 +1,128 @@
+/* Página de Atualização de Cartas - update_card.html */
+
+/* Botão com gradiente */
+.btn-gradient {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 50px;
+    transition: transform 0.2s ease, background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-gradient:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #fbc2eb, #ff9a9e);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Header estilizado */
+.header {
+    padding: 30px 0;
+    background: linear-gradient(to bottom, #0d6efd, #6c757d);
+    color: white;
+    text-align: center;
+    border-bottom: 5px solid #343a40;
+}
+
+.title-gradient {
+    background: linear-gradient(90deg, #ffcc00, #fad000, #ffea70);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Estilização do Formulário */
+form {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+    padding: 10px;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+}
+
+/* Estilização do Menu Lateral */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #343a40;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .nav-link {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    color: #f8f9fa;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #495057;
+    color: #ffcc00;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Footer estilizado */
+.footer {
+    margin-top: auto;
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+/* Animações */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
