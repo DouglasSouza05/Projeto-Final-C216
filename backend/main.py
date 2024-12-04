@@ -11,8 +11,21 @@ async def database():
     )
     return await asyncpg.connect(DATABASE_URL)
 
+description="Este é o repositório do projeto Loja de Card Games, desenvolvido como parte do projeto final da disciplina de C216. A aplicação foi criada utilizando Flask para o frontend e API RESTful para o backend, com integração Docker para fácil execução."
 
-app = FastAPI()
+app = FastAPI(
+    title="Card Games Store API",
+    description=description,
+    version="0.0.1",
+    contact={
+        "name": "Douglas Souza",
+        "email": "douglas.brandao@gec.inatel.br",
+    },
+    license_info={
+        "name": "MIT License",
+        "identifier": "MIT",
+    },
+)
 
 
 class Card(BaseModel):
