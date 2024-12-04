@@ -58,8 +58,40 @@ Os resultados dos testes realizados podem ser encontrados no diretório `/postma
 
 O projeto está organizado da seguinte forma:
 
-PROJETO-FINAL-C216/ ├── backend/ │ ├── db/ │ │ ├── init.sql │ ├── Dockerfile │ ├── main.py ├── frontend/ │ ├── static/ │ │ ├── add_card.css │ │ ├── index.css │ │ ├── list_cards.css │ │ ├── list_sales.css │ │ ├── reset.css │ │ ├── sell_card.css │ │ ├── styles.css │ │ ├── update_card.css │ ├── templates/ │ │ ├── add_card.html │ │ ├── index.html │ │ ├── list_cards.html │ │ ├── list_sales.html │ │ ├── reset.html │ │ ├── sell_card.html │ │ ├── update_card.html │ ├── app.py │ ├── Dockerfile ├── postman/ │ ├── Projeto-Final-C216.postman_collection.json ├── .gitignore ├── docker-compose.yaml ├── LICENSE ├── README.md
-
+```
+PROJETO-FINAL-C216/
+├── backend/
+│   ├── db/
+│   │   ├── init.sql
+│   ├── Dockerfile
+│   ├── main.py
+├── frontend/
+│   ├── static/
+│   │   ├── add_card.css
+│   │   ├── index.css
+│   │   ├── list_cards.css
+│   │   ├── list_sales.css
+│   │   ├── reset.css
+│   │   ├── sell_card.css
+│   │   ├── styles.css
+│   │   ├── update_card.css
+│   ├── templates/
+│   │   ├── add_card.html
+│   │   ├── index.html
+│   │   ├── list_cards.html
+│   │   ├── list_sales.html
+│   │   ├── reset.html
+│   │   ├── sell_card.html
+│   │   ├── update_card.html
+│   ├── app.py
+│   ├── Dockerfile
+├── postman/
+│   ├── Projeto-Final-C216.postman_collection.json
+├── .gitignore
+├── docker-compose.yaml
+├── LICENSE
+├── README.md
+```
 ### Descrição dos Diretórios
 
 - **backend/**: Contém os arquivos do backend, incluindo o banco de dados e o arquivo `main.py` para inicialização do servidor.
