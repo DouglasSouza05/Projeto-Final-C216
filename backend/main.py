@@ -25,8 +25,13 @@ app = FastAPI(
         "name": "MIT License",
         "identifier": "MIT",
     },
+    docs_url="/docs/", redoc_url=None
 )
 
+
+@app.get("/items/")
+async def read_items():
+    return [{"name": "Katana"}]
 
 class Card(BaseModel):
     name: str
