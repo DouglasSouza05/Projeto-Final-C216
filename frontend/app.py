@@ -7,6 +7,11 @@ app = Flask(__name__)
 API_BASE_URL = "http://backend:8000"
 
 
+@app.route("/docs")
+def docs():
+    return redirect("http://localhost:8000/redoc")
+
+
 # Rota para a página inicial
 @app.route("/")
 def index():
