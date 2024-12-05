@@ -172,7 +172,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/api/v1/resetStock/",
+					"raw": "http://localhost:8000/api/v1/resetDatabase/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -181,7 +181,7 @@
 					"path": [
 						"api",
 						"v1",
-						"resetStock",
+						"resetDatabase",
 						""
 					]
 				}
@@ -195,23 +195,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Response should confirm update\", function () {\r",
-							"    pm.expect(pm.response.json().message).to.eql('Componente atualizado com sucesso!');\r",
-							"});\r",
-							"\r",
-							"// Validar se o componente foi atualizado corretamente\r",
-							"pm.sendRequest(\"http://127.0.0.1:8000/api/v1/componentes/3\", function (err, res) {\r",
-							"    pm.test(\"Os atributos do componente foram atualizados\", function () {\r",
-							"        let componente = res.json();\r",
-							"        pm.expect(componente.nome).to.eql(\"Placa de Vídeo - Nova Geração\");\r",
-							"        pm.expect(componente.marca).to.eql(\"Nvidia\");\r",
-							"        pm.expect(componente.quantidade).to.eql(20);\r",
-							"        pm.expect(componente.preco).to.eql(3500.00); // Verifica se o preço foi alterado\r",
-							"    });\r",
-							"});"
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -229,7 +213,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"nome\": \"Placa de Vídeo - Nova Geração\",\r\n  \"marca\": \"Nvidia\",\r\n  \"quantidade\": 20,\r\n  \"preco\": 3500.00\r\n}\r\n",
+					"raw": "{\r\n    \"rarity\": \"Incomum\",\r\n    \"quantity\": 2,\r\n    \"price\": 2.5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -237,20 +221,17 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/componentes/3",
+					"raw": "http://localhost:8000/api/v1/updateCard/2",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"api",
 						"v1",
-						"componentes",
-						"3"
+						"updateCard",
+						"2"
 					]
 				},
 				"description": "Atualiza os atributos de um componente, exceto o ID."
@@ -324,13 +305,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Response should confirm sales details\", function () {\r",
-							"    let venda = pm.response.json()[0];\r",
-							"    pm.expect(venda.valor_venda).to.eql(1000.0); // O valor deve ser o calculo correto da venda efetuada\r",
-							"});\r",
+							"\r",
 							""
 						],
 						"type": "text/javascript",
@@ -342,7 +317,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/vendas/",
+					"raw": "http://127.0.0.1:8000/api/v1/listSales/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -354,7 +329,7 @@
 					"path": [
 						"api",
 						"v1",
-						"vendas",
+						"listSales",
 						""
 					]
 				},
