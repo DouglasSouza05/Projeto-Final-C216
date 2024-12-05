@@ -1,0 +1,26 @@
+{
+  "name": "projeto-final-c216",
+  "version": "1.0.0",
+  "description": "Loja de Card Games - Projeto Final da disciplina C216. Utiliza Flask no frontend, API RESTful no backend e integração com Docker.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "keywords": [
+    "Flask",
+    "Node.js",
+    "Cypress",
+    "Docker",
+    "API",
+    "Frontend",
+    "Backend"
+  ],
+  "author": "Seu Nome",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.17.4"
+  }
+}
