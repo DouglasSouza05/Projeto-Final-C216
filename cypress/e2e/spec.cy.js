@@ -105,6 +105,37 @@ describe('Sales History Page Tests', () => {
   })
 })
 
+describe('Cards Inventory Page Tests', () => {
+  it('Visits the Cards Inventory page and verifies its content', () => {
+    cy.visit('http://localhost:3000/list-cards');
+
+    cy.get('h1').contains('Estoque de Cartas').should('be.visible');
+
+    cy.get('table').should('be.visible');
+
+    cy.get('table thead').within(() => {
+      cy.contains('Nome').should('be.visible');
+      cy.contains('Custo Convertido').should('be.visible');
+      cy.contains('Raridade').should('be.visible');
+      cy.contains('Tipo').should('be.visible');
+      cy.contains('Descrição').should('be.visible');
+      cy.contains('Quantidade').should('be.visible');
+      cy.contains('Preço').should('be.visible');
+    });
+
+    cy.get('table tbody tr').should('have.length.at.least', 1);
+
+    cy.get('table tbody tr').each(($row) => {
+      cy.wrap($row).within(() => {
+        cy.contains('Excluir').should('be.visible');
+        cy.contains('Atualizar').should('be.visible');
+        cy.contains('Vender').should('be.visible');
+      });
+    });
+
+    cy.get('footer').contains('© 2024 Loja de Card Games. Desenvolvido com criatividade e paixão.').should('be.visible');
+  });
+});
 
 
 
