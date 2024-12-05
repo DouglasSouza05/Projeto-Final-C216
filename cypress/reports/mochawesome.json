@@ -1,0 +1,300 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-05T13:28:04.515Z",
+    "end": "2024-12-05T13:28:09.194Z",
+    "duration": 4679,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9f9bc42b-77fb-4037-8363-2f9a266fd289",
+      "title": "",
+      "fullFile": "cypress\\e2e\\spec.cy.js",
+      "file": "cypress\\e2e\\spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cede6d9f-f57c-4d51-a59d-5dcd6db9a6d0",
+          "title": "Home Page Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visits the Home Page and verifies its content",
+              "fullTitle": "Home Page Tests Visits the Home Page and verifies its content",
+              "timedOut": null,
+              "duration": 658,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://localhost:3000/');\ncy.get('h1').contains('Bem-vindo à Loja de Card Games');\ncy.get('.me-3').contains('Adicionar Cartas').should('be.visible');\ncy.get('.container > [href=\"/list-cards\"]').contains('Visualizar Estoque').should('be.visible');\ncy.get('.sidebar').within(() => {\n  cy.contains('Home').should('be.visible');\n  cy.contains('Cadastro de Cartas').should('be.visible');\n  cy.contains('Estoque de Cartas').should('be.visible');\n  cy.contains('Histórico de Vendas').should('be.visible');\n  cy.contains('Resetar o Banco de Dados').should('be.visible');\n});\ncy.get('footer').contains('© 2024 Loja de Card Games. Desenvolvido com criatividade e paixão.');",
+              "err": {},
+              "uuid": "dda7b4da-257f-46ca-b13b-d66578ad8293",
+              "parentUUID": "cede6d9f-f57c-4d51-a59d-5dcd6db9a6d0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "dda7b4da-257f-46ca-b13b-d66578ad8293"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 658,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "ad8635fe-e0f4-4269-91d8-00d9f09011c3",
+          "title": "Add Card Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visits the Add Card page and adds a new card",
+              "fullTitle": "Add Card Tests Visits the Add Card page and adds a new card",
+              "timedOut": null,
+              "duration": 2053,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://localhost:3000/add-card-form');\ncy.get('form').should('be.visible');\ncy.get('#name').type('Counterspell');\ncy.get('#cost').type('UU', {\n  parseSpecialCharSequences: false\n});\ncy.get('#rarity').type('Incomum');\ncy.get('#type').type('Instant');\ncy.get('#description').type('Counter target spell.');\ncy.get('#quantity').type('10');\ncy.get('#price').type('15.50');\ncy.get('.btn').click();\ncy.url().should('include', '/list-cards');\ncy.get('table').contains('td', 'Counterspell').should('be.visible');\ncy.get('table').contains('td', 'UU').should('be.visible');\ncy.get('table').contains('td', 'Incomum').should('be.visible');\ncy.get('table').contains('td', '10').should('be.visible');\ncy.get('table').contains('td', '15.5').should('be.visible');",
+              "err": {},
+              "uuid": "7cc6b4b9-2009-4b18-864b-9cd3903967b8",
+              "parentUUID": "ad8635fe-e0f4-4269-91d8-00d9f09011c3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7cc6b4b9-2009-4b18-864b-9cd3903967b8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2053,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "8c4c2906-aab4-4d77-aac0-74afdcf1ee2e",
+          "title": "Reset Database Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visits the Reset Database page and performs the reset",
+              "fullTitle": "Reset Database Tests Visits the Reset Database page and performs the reset",
+              "timedOut": null,
+              "duration": 349,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://localhost:3000/reset-database');\ncy.get('.success-message').contains('O Banco de Dados foi resetado com sucesso!').should('be.visible');\ncy.get('.btn').contains('Voltar ao Estoque de Cartas').should('be.visible').click();\ncy.url().should('include', '/list-cards');",
+              "err": {},
+              "uuid": "b1c081d3-96e7-45c4-b6a0-da54dcfe9040",
+              "parentUUID": "8c4c2906-aab4-4d77-aac0-74afdcf1ee2e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b1c081d3-96e7-45c4-b6a0-da54dcfe9040"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 349,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "6c983f2d-a28d-438f-8d1b-6077df6887c1",
+          "title": "Sell Card Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visits the Sell Card page and sells a card",
+              "fullTitle": "Sell Card Tests Visits the Sell Card page and sells a card",
+              "timedOut": null,
+              "duration": 1018,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://localhost:3000/list-cards');\ncy.get('table').should('be.visible');\ncy.get('table').contains('td', 'Lightning Bolt').parents('tr').find('[action=\"/sell-card/1\"] > .btn').click();\ncy.get('#quantity').type('2');\ncy.get('.btn').contains('Vender').click();\ncy.visit('http://localhost:3000/list-cards');\ncy.get('table').contains('td', 'Lightning Bolt').parents('tr').find('td').contains('43').should('be.visible');",
+              "err": {},
+              "uuid": "6209a3a6-7faf-40d9-8d59-a7d6bf429161",
+              "parentUUID": "6c983f2d-a28d-438f-8d1b-6077df6887c1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6209a3a6-7faf-40d9-8d59-a7d6bf429161"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1018,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "2236986f-abeb-4aa6-b3e3-27fba395a45c",
+          "title": "Sales History Page Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visits the Sales History page and verifies its content",
+              "fullTitle": "Sales History Page Tests Visits the Sales History page and verifies its content",
+              "timedOut": null,
+              "duration": 222,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://localhost:3000/list-sales');\ncy.get('h1').contains('Histórico de Vendas').should('be.visible');\ncy.get('table').should('be.visible');\ncy.get('table thead').within(() => {\n  cy.contains('ID da Carta Vendida').should('be.visible');\n  cy.contains('Valor de Venda').should('be.visible');\n  cy.contains('Data e Horário de Venda').should('be.visible');\n});\ncy.get('table tbody tr').should('have.length.at.least', 1);\ncy.get('table').contains('Total:').should('be.visible');\ncy.get('table').contains('26.1').should('be.visible');\ncy.get('footer').contains('© 2024 Loja de Card Games. Desenvolvido com criatividade e paixão.').should('be.visible');",
+              "err": {},
+              "uuid": "731e3dca-b68c-425a-b525-0bf6a77d835e",
+              "parentUUID": "2236986f-abeb-4aa6-b3e3-27fba395a45c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "731e3dca-b68c-425a-b525-0bf6a77d835e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 222,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "3559fcc0-52d9-4c27-9251-0497d676bfa0",
+          "title": "Cards Inventory Page Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visits the Cards Inventory page and verifies its content",
+              "fullTitle": "Cards Inventory Page Tests Visits the Cards Inventory page and verifies its content",
+              "timedOut": null,
+              "duration": 327,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://localhost:3000/list-cards');\ncy.get('h1').contains('Estoque de Cartas').should('be.visible');\ncy.get('table').should('be.visible');\ncy.get('table thead').within(() => {\n  cy.contains('Nome').should('be.visible');\n  cy.contains('Custo Convertido').should('be.visible');\n  cy.contains('Raridade').should('be.visible');\n  cy.contains('Tipo').should('be.visible');\n  cy.contains('Descrição').should('be.visible');\n  cy.contains('Quantidade').should('be.visible');\n  cy.contains('Preço').should('be.visible');\n});\ncy.get('table tbody tr').should('have.length.at.least', 1);\ncy.get('table tbody tr').each($row => {\n  cy.wrap($row).within(() => {\n    cy.contains('Excluir').should('be.visible');\n    cy.contains('Atualizar').should('be.visible');\n    cy.contains('Vender').should('be.visible');\n  });\n});",
+              "err": {},
+              "uuid": "dd0c6e0a-453f-473c-b111-6aed8f5b6edd",
+              "parentUUID": "3559fcc0-52d9-4c27-9251-0497d676bfa0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "dd0c6e0a-453f-473c-b111-6aed8f5b6edd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 327,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
