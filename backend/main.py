@@ -179,7 +179,7 @@ async def updateCard(id: int, card_update: UpdatedCard):
             card_update.price,
             id,
         )
-        return {"message": f"Carta atualizada com sucesso!"}
+        return {"message": f"Carta atualizada com sucesso!", "value": card_update}
     except Exception as e:
         raise HTTPException(
             status_code=500, detail=f"Falha ao atualizar a carta: {str(e)}"
