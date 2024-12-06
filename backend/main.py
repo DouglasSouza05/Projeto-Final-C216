@@ -11,7 +11,8 @@ async def database():
     )
     return await asyncpg.connect(DATABASE_URL)
 
-description="Este é o repositório do projeto Loja de Card Games, desenvolvido como parte do projeto final da disciplina de C216. A aplicação foi criada utilizando Flask para o frontend e API RESTful para o backend, com integração Docker para fácil execução."
+
+description = "Este é o repositório do projeto Loja de Card Games, desenvolvido como parte do projeto final da disciplina de C216. A aplicação foi criada utilizando Flask para o frontend e API RESTful para o backend, com integração Docker para fácil execução."
 
 app = FastAPI(
     title="Card Games Store API",
@@ -27,6 +28,7 @@ app = FastAPI(
         "identifier": "MIT",
     },
 )
+
 
 class Card(BaseModel):
     name: str
@@ -177,7 +179,7 @@ async def updateCard(id: int, card_update: UpdatedCard):
             card_update.price,
             id,
         )
-        return {"message": f"Carta com ID {id} atualizada com sucesso!"}
+        return {"message": f"Carta atualizada com sucesso!"}
     except Exception as e:
         raise HTTPException(
             status_code=500, detail=f"Falha ao atualizar a carta: {str(e)}"

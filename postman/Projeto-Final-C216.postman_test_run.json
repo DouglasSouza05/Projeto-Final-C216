@@ -1,22 +1,22 @@
 {
-	"id": "6b4f77b3-931f-49e6-a800-3295762b7b79",
+	"id": "daf2e019-0d4e-47ad-83c3-4076738ecac8",
 	"name": "Projeto-Final-C216",
-	"timestamp": "2024-12-06T00:33:59.856Z",
+	"timestamp": "2024-12-06T00:46:07.846Z",
 	"collection_id": "33427545-fe1965a3-f2da-44eb-b55a-c46bed09ccaf",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 13,
+	"totalPass": 25,
 	"delay": 0,
 	"persist": true,
 	"status": "finished",
-	"startedAt": "2024-12-06T00:33:58.426Z",
+	"startedAt": "2024-12-06T00:46:06.386Z",
 	"totalFail": 0,
 	"results": [
 		{
 			"id": "9be201e2-1283-4529-9d24-082f2c815057",
 			"name": "POST - Adicionar Cartas",
 			"url": "http://localhost:8000/api/v1/addCard/",
-			"time": 92,
+			"time": 148,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -41,7 +41,7 @@
 				}
 			},
 			"times": [
-				92
+				148
 			],
 			"allTests": [
 				{
@@ -55,7 +55,7 @@
 			"id": "6cac73d0-1a32-46eb-a037-caeea7473921",
 			"name": "GET - Listar Cartas",
 			"url": "http://localhost:8000/api/v1/listCards/",
-			"time": 52,
+			"time": 43,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -80,7 +80,7 @@
 				}
 			},
 			"times": [
-				52
+				43
 			],
 			"allTests": [
 				{
@@ -94,7 +94,7 @@
 			"id": "3e87e8a5-b20d-430c-bb9e-72be829867b4",
 			"name": "GET - Buscar Cartas",
 			"url": "http://localhost:8000/api/v1/searchCard/1",
-			"time": 48,
+			"time": 42,
 			"responseCode": {
 				"code": 302,
 				"name": "Found"
@@ -119,7 +119,7 @@
 				}
 			},
 			"times": [
-				48
+				42
 			],
 			"allTests": [
 				{
@@ -183,72 +183,156 @@
 				"code": 200,
 				"name": "OK"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Status code is 200!": true,
+				"Response has message field!": true,
+				"No server error occurred!": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200!": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has message field!": {
+					"pass": 1,
+					"fail": 0
+				},
+				"No server error occurred!": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
 			"times": [
 				46
 			],
 			"allTests": [
-				{}
+				{
+					"Status code is 200!": true,
+					"Response has message field!": true,
+					"No server error occurred!": true
+				}
 			]
 		},
 		{
 			"id": "d95d1cd5-e221-44d4-8b1a-2c2170eab779",
 			"name": "GET - Listar Vendas",
 			"url": "http://127.0.0.1:8000/api/v1/listSales/",
-			"time": 43,
+			"time": 44,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Status code is 200!": true,
+				"Sales array is not empty!": true,
+				"First sale has correct properties!": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200!": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Sales array is not empty!": {
+					"pass": 1,
+					"fail": 0
+				},
+				"First sale has correct properties!": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
 			"times": [
-				43
+				44
 			],
 			"allTests": [
-				{}
+				{
+					"Status code is 200!": true,
+					"Sales array is not empty!": true,
+					"First sale has correct properties!": true
+				}
 			]
 		},
 		{
 			"id": "a3b997a7-bcd6-454e-b199-b0c3d6a1ad40",
 			"name": "DELETE - Deletar Cartas",
-			"url": "http://localhost:8000/api/v1/deleteCard/2",
-			"time": 45,
+			"url": "http://localhost:8000/api/v1/deleteCard/1",
+			"time": 46,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Status code is 200!": true,
+				"Card deleted correctly!": true,
+				"Card deleted has correct attributes!": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200!": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Card deleted correctly!": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Card deleted has correct attributes!": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
 			"times": [
-				45
+				46
 			],
 			"allTests": [
-				{}
+				{
+					"Status code is 200!": true,
+					"Card deleted correctly!": true,
+					"Card deleted has correct attributes!": true
+				}
 			]
 		},
 		{
 			"id": "f44a90e4-fb34-4ba2-a0c3-34891120b760",
 			"name": "DELETE - Resetar Estoque",
 			"url": "http://localhost:8000/api/v1/resetDatabase/",
-			"time": 104,
+			"time": 56,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Status code is 200!": true,
+				"Stock alredy emptied!": true,
+				"No server error occurred!": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200!": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Stock alredy emptied!": {
+					"pass": 1,
+					"fail": 0
+				},
+				"No server error occurred!": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
 			"times": [
-				104
+				56
 			],
 			"allTests": [
-				{}
+				{
+					"Status code is 200!": true,
+					"Stock alredy emptied!": true,
+					"No server error occurred!": true
+				}
 			]
 		}
 	],
 	"count": 1,
-	"totalTime": 478,
+	"totalTime": 473,
 	"collection": {
 		"requests": [
 			{
