@@ -1,0 +1,225 @@
+{
+	"id": "c10ca449-5ecb-4e0b-be66-e2276fad26e7",
+	"name": "Projeto-Final-C216",
+	"timestamp": "2024-12-06T00:11:17.848Z",
+	"collection_id": "33427545-fe1965a3-f2da-44eb-b55a-c46bed09ccaf",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 3,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-12-06T00:11:16.302Z",
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "9be201e2-1283-4529-9d24-082f2c815057",
+			"name": "POST - Add Cards",
+			"url": "http://localhost:8000/api/v1/addCard/",
+			"time": 125,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201!": true,
+				"Response has message field!": true,
+				"Message confirms successful card addition": true,
+				"Message confirms card quantity update": false
+			},
+			"testPassFailCounts": {
+				"Status code is 201!": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has message field!": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message confirms successful card addition": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message confirms card quantity update": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				125
+			],
+			"allTests": [
+				{
+					"Status code is 201!": true,
+					"Response has message field!": true,
+					"Message confirms successful card addition": true,
+					"Message confirms card quantity update": false
+				}
+			]
+		},
+		{
+			"id": "6cac73d0-1a32-46eb-a037-caeea7473921",
+			"name": "GET - List Cards",
+			"url": "http://localhost:8000/api/v1/listCards/",
+			"time": 53,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				53
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3e87e8a5-b20d-430c-bb9e-72be829867b4",
+			"name": "GET - Search Cards",
+			"url": "http://localhost:8000/api/v1/searchCard/1",
+			"time": 62,
+			"responseCode": {
+				"code": 302,
+				"name": "Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				62
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a3b997a7-bcd6-454e-b199-b0c3d6a1ad40",
+			"name": "DELETE - Delete Cards",
+			"url": "http://localhost:8000/api/v1/deleteCard/2",
+			"time": 47,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				47
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f44a90e4-fb34-4ba2-a0c3-34891120b760",
+			"name": "DELETE - Reset Stock",
+			"url": "http://localhost:8000/api/v1/resetDatabase/",
+			"time": 66,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				66
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d5d6d188-1430-4b77-be7e-5d5fb3ace084",
+			"name": "PATCH - Atualizar Atributos de uma Carta",
+			"url": "http://localhost:8000/api/v1/updateCard/2",
+			"time": 60,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				60
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c851c710-0614-446e-a09d-41329494a361",
+			"name": "PUT - Vender uma Carta",
+			"url": "http://127.0.0.1:8000/api/v1/sellCard/2",
+			"time": 51,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				51
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d95d1cd5-e221-44d4-8b1a-2c2170eab779",
+			"name": "GET - Listar todas as Vendas",
+			"url": "http://127.0.0.1:8000/api/v1/listSales/",
+			"time": 63,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				63
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 527,
+	"collection": {
+		"requests": [
+			{
+				"id": "9be201e2-1283-4529-9d24-082f2c815057",
+				"method": "POST"
+			},
+			{
+				"id": "6cac73d0-1a32-46eb-a037-caeea7473921",
+				"method": "GET"
+			},
+			{
+				"id": "3e87e8a5-b20d-430c-bb9e-72be829867b4",
+				"method": "GET"
+			},
+			{
+				"id": "a3b997a7-bcd6-454e-b199-b0c3d6a1ad40",
+				"method": "DELETE"
+			},
+			{
+				"id": "f44a90e4-fb34-4ba2-a0c3-34891120b760",
+				"method": "DELETE"
+			},
+			{
+				"id": "d5d6d188-1430-4b77-be7e-5d5fb3ace084",
+				"method": "PATCH"
+			},
+			{
+				"id": "c851c710-0614-446e-a09d-41329494a361",
+				"method": "PUT"
+			},
+			{
+				"id": "d95d1cd5-e221-44d4-8b1a-2c2170eab779",
+				"method": "GET"
+			}
+		]
+	}
+}
