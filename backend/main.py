@@ -18,16 +18,10 @@ app = FastAPI(
     title="Card Games Store API",
     description=text,
     version="0.0.1",
-    contact=[
-        {
+    contact={
             "name": "Douglas Souza",
             "email": "douglas.brandao@gec.inatel.br",
         },
-        {
-            "name": "Eduardo Resende",
-            "email": "eduardo.costa@ges.inatel.br",
-        }
-    ],
     license_info={
         "name": "MIT License",
         "url": "https://opensource.org/licenses/MIT",
