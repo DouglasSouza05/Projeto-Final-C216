@@ -1,17 +1,17 @@
 # Usando uma imagem base do Python
 FROM python:3.10-slim
 
-# Install any dependencies needed to run your Python code
+# Instalando dependências
 RUN pip install flask requests
 
-# Set the working directory to /app
+# Definindo o diretório de trabalho
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# Copiando o código para o container
 COPY . /app
 
-# Make port 3000 available to the world outside this container
+# Exportando a porta 3000
 EXPOSE 3000
 
-# Run app.py when the container launches
+# Comando para rodar a aplicação
 CMD ["python", "app.py"]
