@@ -22,6 +22,10 @@ app = FastAPI(
             "name": "Douglas Souza",
             "email": "douglas.brandao@gec.inatel.br",
         },
+    contact={
+            "name": "Eduardo Resende",
+            "email": "eduardo.costa@ges.inatel.br",
+        },
     license_info={
         "name": "MIT License",
         "url": "https://opensource.org/licenses/MIT",
