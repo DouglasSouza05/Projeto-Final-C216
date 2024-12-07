@@ -18,11 +18,11 @@ app = FastAPI(
     title="Card Games Store API",
     description=text,
     version="0.0.1",
-    contact={
+    douglas_contact={
             "name": "Douglas Souza",
             "email": "douglas.brandao@gec.inatel.br",
         },
-    contact={
+    eduardo_contact={
             "name": "Eduardo Resende",
             "email": "eduardo.costa@ges.inatel.br",
         },
